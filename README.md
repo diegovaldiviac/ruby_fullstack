@@ -1,12 +1,24 @@
-# README
+# Full Stack Ruby Project
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+### Ruby version 3.2.2
 
-* Ruby version
+Generated with: 
+```
+$ rails new full_stack --database=postgresql
+```
 
+### Scripts
+```
+$ bin/rails console
+$ bin/rails server
+$ bin/rails test
+$ bin/rails generate
+$ bin/rails db:migrate
+$ bin/rails db:create
+$ bin/rails routes
+$ bin/rails dbconsole
+```
 * System dependencies
 
 * Configuration
