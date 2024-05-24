@@ -19,6 +19,12 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
 # manejo de usuarios con devise e invitaciones
 gem 'devise'
+# Testeo
+gem 'rspec-rails'
+# Para variables de entorno.
+gem 'dotenv-rails', require: 'dotenv/load'
+# Plugin de bundler
+gem 'guard-bundler', '~> 3.0', require: false
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
