@@ -1,0 +1,20 @@
+<div class="producto">
+  <div class="container">
+
+    <div class="row">
+      <% @producto.each do |p|%> 
+        <div class="item col-md-4">
+          <div class="img-container">
+            <%= image_tag p.image %>
+          </div>
+          <div class="producto-info">
+            <h2><%= p.name %></h2> 
+            <h2><%= p.type %></h2>
+            <p><%= link_to "See Producto", producto_path(p) %></p>
+          </div>
+        </div>
+      <% end %> 
+    </div>
+
+  </div>
+</div>
