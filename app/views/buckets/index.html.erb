@@ -10,7 +10,7 @@
           <div class="bucket-info">
             <h2><%= bucket.name %></h2> 
             <h3><%= bucket.category %></h2> 
-            <p><%= link_to "See Productos", productos_bucket_path(bucket) %></p>
+            <p><%= link_to "See Productos", bucket_productos_path(@bucket) %></p>
           </div>
         </div>
       <% end %> 

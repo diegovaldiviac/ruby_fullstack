@@ -1,0 +1,31 @@
+<div class="productos">
+<div class="container">
+  <h1>Edit Producto</h1>
+  <%= form_with(model: [@bucket, @producto], local: true) do |form| %>
+    <% if @producto.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@producto.errors.count, "error") %> prohibited this producto from being saved:</h2>
+        <ul>
+          <% @producto.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <p> <%=@producto.name %></p>
+    <div class="field">
+      <%= form.label :price %>
+      <%= form.text_field :price, value: @producto.price %>
+    </div>
+
+    <div class="field">
+      <%= form.label :status %>
+      <%= form.text_field :status, value: @producto.status %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit "Save", class: 'btn btn-primary' %>
+    </div>
+  <% end %>
+</div>
