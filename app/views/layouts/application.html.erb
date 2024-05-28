@@ -19,8 +19,8 @@
         </ul> 
       <% else %> 
         <ul> 
-          <li><%= link_to "Login", 'login' %></a></li> 
-          <li><%= link_to "Signup", 'signup' %></a></li> 
+          <li><%= link_to "Login", new_session_path %></a></li> 
+          <li><%= link_to "Signup", signup_path %></a></li> 
         </ul> 
       <% end %> 
       <%= yield %>

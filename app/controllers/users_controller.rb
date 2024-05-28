@@ -12,7 +12,7 @@ class UsersController < ApplicationController
           
           #redirect_to bucket_path(@user.bucket_id)
           # TODO: Associate buckets to Users
-          redirect_to bucket_path
+          redirect_to buckets_path
         else 
           redirect_to signup_path
         end 

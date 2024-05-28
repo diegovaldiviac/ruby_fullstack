@@ -1,5 +1,7 @@
 
 class ProductosController < ApplicationController
+
+    before_action :require_user, only: [:index_for_bucket]
     
   
     def index_for_bucket

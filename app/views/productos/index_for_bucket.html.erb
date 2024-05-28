@@ -1,6 +1,6 @@
 <div class="productos">
   <div class="container">
-
+    <%= link_to "Back to Buckets", buckets_path, class: 'btn btn-primary' %>
     <h1><%= @bucket.name %></h1>
     <div class="row">
       <% @productos.each do |producto|%> 
