@@ -9,14 +9,17 @@ class SessionsController < ApplicationController
         @user = User.find_by_email(params[:session][:email])
         if @user && @user.authenticate(params[:session][:password])
           session[:user_id] = @user.id
-          redirect_to '/', allow_other_host: true
+          
+          #redirect_to bucket_path(@user.bucket_id)
+          # TODO: Associate buckets to Users
+          redirect_to bucket_path
         else
-          redirect_to '/login', allow_other_host: true
+          redirect_to login_path
         end 
     end
     
     def destroy 
         session[:user_id] = nil 
-        redirect_to '/' 
+        redirect_to root_path
     end
 end

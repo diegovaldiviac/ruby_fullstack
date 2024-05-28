@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_05_28_134342) do
+ActiveRecord::Schema.define(version: 2024_05_28_153938) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2024_05_28_134342) do
   create_table "buckets", force: :cascade do |t|
     t.string "name", null: false
     t.string "image"
-    t.string "type", null: false
+    t.string "category", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

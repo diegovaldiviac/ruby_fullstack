@@ -10,9 +10,11 @@ class UsersController < ApplicationController
         if @user.save 
           session[:user_id] = @user.id 
           
-          redirect_to '/producto' 
+          #redirect_to bucket_path(@user.bucket_id)
+          # TODO: Associate buckets to Users
+          redirect_to bucket_path
         else 
-          redirect_to '/signup' 
+          redirect_to signup_path
         end 
     end 
     

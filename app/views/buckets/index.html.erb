@@ -1,0 +1,20 @@
+<div class="buckets">
+  <div class="container">
+
+    <div class="row">
+      <% @buckets.each do |bucket|%> 
+        <div class="item col-md-4">
+          <div class="img-container">
+            <%= image_tag bucket.image if bucket.image.present? %>
+          </div>
+          <div class="bucket-info">
+            <h2><%= bucket.name %></h2> 
+            <h3><%= bucket.category %></h2> 
+            <p><%= link_to "See Productos", productos_bucket_path(bucket) %></p>
+          </div>
+        </div>
+      <% end %> 
+    </div>
+
+  </div>
+</div>

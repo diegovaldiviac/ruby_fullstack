@@ -1,0 +1,18 @@
+<div class="productos">
+  <div class="container">
+
+    <h1><%= @bucket.name %></h1>
+    <div class="row">
+      <% @productos.each do |producto|%> 
+        <div class="item col-md-4">
+          <div class="producto-info">
+            <p><%= producto.name %></p>
+            <p><%= producto.price %></p> 
+            <p><%= producto.status %></p>  
+          </div>
+        </div>
+      <% end %> 
+    </div>
+
+  </div>
+</div>
