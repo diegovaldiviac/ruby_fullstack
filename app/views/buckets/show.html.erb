@@ -1,0 +1,20 @@
+<div class="productos">
+  <div class="container">
+    <%= link_to "Back to Buckets", buckets_path, class: 'btn btn-primary' %>
+    <h1><%= @bucket.name %></h1>
+    <div class="row">
+      <% @productos.each do |producto|%> 
+        <div class="item col-md-4">
+          <div class="producto-info">
+            <p>name: <%=producto.name %></p>
+            <p>price: <%= producto.price %></p> 
+            <p>status: <%= producto.status %></p>  
+            <%= link_to "Edit", edit_bucket_producto_path(@bucket, producto.id), class: 'btn btn-warning' %>
+            <p> ------------------------------ </p>
+          </div>
+        </div>
+      <% end %> 
+    </div>
+     <%= link_to "New Producto", new_bucket_producto_path(@bucket), class: 'btn btn-success' %>
+  </div>
+</div>
