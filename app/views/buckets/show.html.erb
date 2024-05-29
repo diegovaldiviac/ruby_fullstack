@@ -9,7 +9,7 @@
             <p>name: <%=producto.name %></p>
             <p>price: <%= producto.price %></p> 
             <p>status: <%= producto.status %></p>  
-            <%= link_to "Edit", edit_bucket_producto_path(@bucket, producto), class: 'btn btn-warning' %>
+            <%= link_to "Edit", edit_bucket_producto_path(@bucket, producto.id), class: 'btn btn-warning' %>
             <p> ------------------------------ </p>
           </div>
         </div>

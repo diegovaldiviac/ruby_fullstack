@@ -1,7 +1,7 @@
 
 class ProductosController < ApplicationController
     before_action :find_bucket
-    before_action :find_producto, only: [:edit, :update, :destroy]
+    before_action :find_producto, only: [:edit, :update, :destroy,]
     before_action :require_user
 
     def find_bucket
@@ -12,45 +12,48 @@ class ProductosController < ApplicationController
       @producto = @bucket.productos.find(params[:id])
     end
     
-  
-    def index
-      @productos = @bucket.productos
-    end
 
     def new
       @producto = @bucket.productos.build
     end
-  
+    
     def create
       @producto = @bucket.productos.build(producto_params)
       if @producto.save
-        redirect_to bucket_productos_path(@bucket), notice: "Producto was successfully created."
+        redirect_to productos_bucket_path(@bucket), notice: "Producto was successfully created."
       else
+        if @producto.errors[:required_field].include?("can't be blank")
+          flash.now[:alert] = "Please fill in all required fields."
+        end
         render :new
       end
     end
+    
 
     def edit
     end
   
     def update
       if @producto.update(producto_params)
-        redirect_to bucket_productos_path(@bucket), notice: "Producto was successfully updated."
+        redirect_to productos_bucket_path(@bucket), notice: "Producto was successfully updated."
       else
         render :edit
       end
     end
   
     def destroy
-      @producto.destroy
-      redirect_to bucket_productos_path(@bucket), notice: "Producto was successfully deleted."
+      if @producto.destroy
+        redirect_to productos_bucket_path(@producto.bucket_id), alert: "Producto was successfully deleted."
+      else
+        render :edit, alert: "Failed to delete"
+      end
     end
 
 
   
     private
     def producto_params
-      params.require(:producto).permit(:name, :price, :status) # Adjust attributes as needed
+      params.require(:producto).permit(:name, :price, :status)
     end
 end
   
