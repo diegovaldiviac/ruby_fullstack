@@ -25,6 +25,8 @@ gem 'rspec-rails'
 gem 'dotenv-rails', require: 'dotenv/load'
 # Plugin de bundler
 gem 'guard-bundler', '~> 3.0', require: false
+# cells https://github.com/trailblazer/cells
+gem "cells-rails"
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password

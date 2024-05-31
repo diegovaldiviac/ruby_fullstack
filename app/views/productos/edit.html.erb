@@ -29,6 +29,8 @@
     </div>
     
   <% end %>
-  <%= button_to "Delete", [@bucket, @producto], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+  <% if current_user && current_user.admin? %> 
+    <%= button_to "Delete", [@bucket, @producto], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+  <% end %>
   <%= link_to "Back", productos_bucket_path(@bucket), class: 'btn btn-secondary' %>
 </div>

@@ -8,8 +8,10 @@
           <div class="producto-info">
             <p>name: <%=producto.name %></p>
             <p>price: <%= producto.price %></p> 
-            <p>status: <%= producto.status %></p>  
-            <%= link_to "Edit", edit_bucket_producto_path(@bucket, producto.id), class: 'btn btn-warning' %>
+            <p>status: <%= producto.status %></p>
+            <% if current_user && (current_user.editor? || current_user.admin?) %>
+              <%= link_to "Edit", edit_bucket_producto_path(@bucket, producto), class: 'btn btn-warning' %>
+            <% end %>
             <p> ------------------------------ </p>
           </div>
         </div>
