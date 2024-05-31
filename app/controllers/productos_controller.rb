@@ -1,8 +1,10 @@
 
 class ProductosController < ApplicationController
     before_action :find_bucket
-    before_action :find_producto, only: [:edit, :update, :destroy,]
+    before_action :find_producto, only: [:edit, :update, :destroy]
     before_action :require_user
+    before_action :require_editor_or_admin, only: [:edit]
+    before_action :require_admin, only: [:destroy]
 
     def find_bucket
       @bucket = Bucket.find(params[:bucket_id])
@@ -31,6 +33,7 @@ class ProductosController < ApplicationController
     
 
     def edit
+      #@producto = Producto.find(params[:id])
     end
   
     def update
