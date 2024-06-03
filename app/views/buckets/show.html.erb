@@ -1,22 +1,22 @@
-<div class="productos">
-  <div class="container">
-    <%= link_to "Back to Buckets", buckets_path, class: 'btn btn-primary' %>
-    <h1><%= @bucket.name %></h1>
-    <div class="row">
+<div class="productos" style="display: flex; justify-content: center;">
+  <div class="container" style="max-width: 1200px;">
+
+    <%= link_to "Back to Buckets", buckets_path, class: 'btn btn-primary', style: "text-decoration: none; color: #007bff;" %>
+    <h1 style="text-align: center;"><%= @bucket.name %></h1>
+    <div class="row" style="display: flex; flex-wrap: wrap; justify-content: space-between;">
       <% @productos.each do |producto|%> 
-        <div class="item col-md-4">
-          <div class="producto-info">
-            <p>name: <%=producto.name %></p>
-            <p>price: <%= producto.price %></p> 
-            <p>status: <%= producto.status %></p>
+        <div class="item col-md-4" style="flex: 0 0 calc(33.333% - 20px); margin-bottom: 20px;">
+          <div class="producto-info" style="padding: 15px; background-color: #f9f9f9; border-radius: 5px;">
+            <p><strong>Name:</strong> <%= producto.name %></p>
+            <p><strong>Price:</strong> <%= producto.price %></p> 
+            <p><strong>Status:</strong> <%= producto.status %></p>
             <% if current_user && (current_user.editor? || current_user.admin?) %>
-              <%= link_to "Edit", edit_bucket_producto_path(@bucket, producto), class: 'btn btn-warning' %>
+              <%= link_to "Edit", edit_bucket_producto_path(@bucket, producto), class: 'btn btn-warning', style: "margin-top: 10px; text-decoration: none; color: #fff; background-color: #ffc107; padding: 5px 10px; border: none; border-radius: 3px;" %>
             <% end %>
-            <p> ------------------------------ </p>
           </div>
         </div>
       <% end %> 
     </div>
-     <%= link_to "New Producto", new_bucket_producto_path(@bucket), class: 'btn btn-success' %>
+    <%= link_to "New Producto", new_bucket_producto_path(@bucket), class: 'btn btn-success', style: "margin-top: 20px; text-decoration: none; color: #fff; background-color: #28a745; padding: 10px 20px; border: none; border-radius: 3px;" %>
   </div>
 </div>

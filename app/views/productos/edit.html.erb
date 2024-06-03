@@ -1,36 +1,38 @@
-<div class="productos">
-<div class="container">
-  <h1>Edit Producto</h1>
-  <%= form_with(model: [@bucket, @producto], local: true) do |form| %>
-    <% if @producto.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(@producto.errors.count, "error") %> prohibited this producto from being saved:</h2>
-        <ul>
-          <% @producto.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-        </ul>
+<div class="productos" style="display: flex; justify-content: center; align-items: center;">
+  <div class="container" style="width: 80%; max-width: 600px;">
+    <h1 style="text-align: center; margin-bottom: 20px;">Edit Producto</h1>
+    <%= form_with(model: [@bucket, @producto], local: true) do |form| %>
+      <% if @producto.errors.any? %>
+        <div id="error_explanation" style="background-color: #f9f9f9; padding: 10px; border-radius: 5px; margin-bottom: 20px;">
+          <h2 style="color: red;"><%= pluralize(@producto.errors.count, "error") %> prohibited this producto from being saved:</h2>
+          <ul>
+            <% @producto.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <p style="margin-bottom: 15px;"><%=@producto.name %></p>
+
+      <div class="field" style="margin-bottom: 15px;">
+        <%= form.label :price %>
+        <%= form.text_field :price, value: @producto.price, style: "width: 100%; padding: 5px; border-radius: 3px; border: 1px solid #ccc;" %>
+      </div>
+
+      <div class="field" style="margin-bottom: 15px;">
+        <%= form.label :status %>
+        <%= form.text_field :status, value: @producto.status, style: "width: 100%; padding: 5px; border-radius: 3px; border: 1px solid #ccc;" %>
+      </div>
+
+      <div class="actions" style="text-align: center;">
+        <%= form.submit "Save", style: "background-color: #007bff; color: #fff; padding: 10px 20px; border: none; border-radius: 3px; cursor: pointer;" %>
       </div>
     <% end %>
 
-    <p> <%=@producto.name %></p>
-    <div class="field">
-      <%= form.label :price %>
-      <%= form.text_field :price, value: @producto.price %>
-    </div>
-
-    <div class="field">
-      <%= form.label :status %>
-      <%= form.text_field :status, value: @producto.status %>
-    </div>
-
-    <div class="actions">
-      <%= form.submit "Save", class: 'btn btn-primary' %>
-    </div>
-    
-  <% end %>
-  <% if current_user && current_user.admin? %> 
-    <%= button_to "Delete", [@bucket, @producto], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
-  <% end %>
-  <%= link_to "Back", productos_bucket_path(@bucket), class: 'btn btn-secondary' %>
+    <% if current_user && current_user.admin? %>
+      <%= button_to "Delete", [@bucket, @producto], method: :delete, data: { confirm: 'Are you sure?' }, style: "background-color: #dc3545; color: #fff; padding: 10px 20px; border: none; border-radius: 3px; cursor: pointer; margin-top: 20px;", class: 'btn btn-danger' %>
+    <% end %>
+    <%= link_to "Back", productos_bucket_path(@bucket), style: "display: block; text-align: center; text-decoration: none; color: #fff; background-color: #6c757d; padding: 10px 20px; border-radius: 3px; margin-top: 20px;", class: 'btn btn-secondary' %>
+  </div>
 </div>

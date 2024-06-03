@@ -1,11 +1,11 @@
-<div class="producto">
-  <div class="container">
-    <div class="form">
-      <h1>Create a Producto</h1>
+<div class="producto" style="display: flex; justify-content: center; align-items: center;">
+  <div class="container" style="width: 80%; max-width: 600px;">
+    <div class="form" style="background-color: #f9f9f9; padding: 20px; border-radius: 5px;">
+      <h1 style="text-align: center; margin-bottom: 20px;">Create a Producto</h1>
       <%= form_with(model: [@bucket, @producto], local: true) do |form| %>
         <% if @producto.errors.any? %>
           <div id="error_explanation">
-            <h2><%= pluralize(@producto.errors.count, "error") %> prohibited this producto from being saved:</h2>
+            <h2 style="color: red;"><%= pluralize(@producto.errors.count, "error") %> prohibited this producto from being saved:</h2>
             <ul>
               <% @producto.errors.full_messages.each do |message| %>
                 <li><%= message %></li>
@@ -14,26 +14,26 @@
           </div>
         <% end %>
 
-        <div class="field">
+        <div class="field" style="margin-bottom: 15px;">
           <%= form.label :name %>
-          <%= form.text_field :name %>
+          <%= form.text_field :name, style: "width: 100%; padding: 5px; border-radius: 3px; border: 1px solid #ccc;" %>
         </div>
 
-        <div class="field">
+        <div class="field" style="margin-bottom: 15px;">
           <%= form.label :price %>
-          <%= form.text_field :price %>
+          <%= form.text_field :price, style: "width: 100%; padding: 5px; border-radius: 3px; border: 1px solid #ccc;" %>
         </div>
 
-        <div class="field">
+        <div class="field" style="margin-bottom: 15px;">
           <%= form.label :status %>
-          <%= form.text_field :status %>
+          <%= form.text_field :status, style: "width: 100%; padding: 5px; border-radius: 3px; border: 1px solid #ccc;" %>
         </div>
 
-        <div class="actions">
-          <%= form.submit "Create Producto" %>
+        <div class="actions" style="text-align: center;">
+          <%= form.submit "Create Producto", style: "background-color: #007bff; color: #fff; padding: 10px 20px; border: none; border-radius: 3px; cursor: pointer;" %>
         </div>
       <% end %>
-      <%= link_to "Back", productos_bucket_path(@bucket), class: 'btn btn-secondary' %>
+      <%= link_to "Back", productos_bucket_path(@bucket), class: 'btn btn-secondary', style: "margin-top: 20px; display: block; text-align: center; text-decoration: none; color: #fff; background-color: #6c757d; padding: 10px 20px; border-radius: 3px;" %>
 
     </div>
   </div>

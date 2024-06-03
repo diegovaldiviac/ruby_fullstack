@@ -1,16 +1,16 @@
-<div class="buckets">
-  <div class="container">
+<div class="buckets" style="display: flex; justify-content: center;">
+  <div class="container" style="max-width: 1200px;">
 
-    <div class="row">
+    <div class="row" style="display: flex; flex-wrap: wrap; justify-content: space-between;">
       <% @buckets.each do |bucket|%> 
-        <div class="item col-md-4">
-          <div class="img-container">
-            <%= image_tag bucket.image if bucket.image.present? %>
+        <div class="item col-md-4" style="flex: 0 0 calc(33.333% - 20px); margin-bottom: 20px;">
+          <div class="img-container" style="border-radius: 5px; overflow: hidden;">
+            <%= image_tag bucket.image, style: "width: 100%;" if bucket.image.present? %>
           </div>
-          <div class="bucket-info">
-            <h2><%= bucket.name %></h2> 
-            <h3><%= bucket.category %></h2> 
-            <p><%= link_to "See Productos", productos_bucket_path(bucket) %></p>
+          <div class="bucket-info" style="padding: 15px; background-color: #f9f9f9; border-radius: 5px;">
+            <h2 style="margin-bottom: 10px;"><%= bucket.name %></h2> 
+            <h3 style="margin-bottom: 10px;"><%= bucket.category %></h3> 
+            <p><%= link_to "See Productos", productos_bucket_path(bucket), style: "text-decoration: none; color: #007bff;" %></p>
           </div>
         </div>
       <% end %> 
