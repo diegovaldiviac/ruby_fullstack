@@ -19,8 +19,6 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
 # manejo de usuarios con devise e invitaciones
 gem 'devise'
-# Testeo
-gem 'rspec-rails'
 # Para variables de entorno.
 gem 'dotenv-rails', require: 'dotenv/load'
 # Plugin de bundler
@@ -31,6 +29,13 @@ gem "cells-rails"
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+# testing
+gem 'rspec-rails', group: [:development, :test]
+# Funciones para crear modelos y poblar ambientes QA
+gem 'factory_bot'
+# y su integración con rails
+gem 'factory_bot_rails'
+
 
 
 # Use Active Storage variant

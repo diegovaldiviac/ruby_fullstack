@@ -104,6 +104,11 @@ GEM
       dotenv (= 3.1.2)
       railties (>= 6.1)
     erubi (1.12.0)
+    factory_bot (5.1.2)
+      activesupport (>= 4.2.0)
+    factory_bot_rails (5.1.1)
+      factory_bot (~> 5.1.0)
+      railties (>= 4.2.0)
     ffi (1.16.3)
     formatador (1.1.0)
     globalid (1.2.1)
@@ -316,6 +321,8 @@ DEPENDENCIES
   cells-rails
   devise
   dotenv-rails
+  factory_bot
+  factory_bot_rails
   guard-bundler (~> 3.0)
   jbuilder (~> 2.7)
   listen (~> 3.3)
